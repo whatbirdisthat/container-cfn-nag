@@ -23,3 +23,6 @@ cleanup-commands:
 	@$(foreach THE_ITEM, $(ITEMS), $(CLEANUP_COMMAND))
 uninstall: cleanup-commands
 	docker rmi $(IMAGE)
+
+check:
+	docker run --rm -i hadolint/hadolint < Dockerfile
